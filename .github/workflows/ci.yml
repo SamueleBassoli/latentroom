@@ -1,0 +1,53 @@
+# CI on GitHub's Windows runners (no GPU): what a dev PC cannot check.
+#   test:  ruff + pytest, the commands scripts/build.ps1 runs, on the locked toolchain.
+#   build: scripts/build.ps1 end to end (exe, smoke, installer, install/uninstall test);
+#          the installer and its .sha256 become the run's "latentroom-setup" artifact.
+# release.yml calls this file on a v* tag and drafts a release from that artifact.
+name: CI
+
+on:
+  push:
+    branches: ["**"]  # branches only: a v* tag runs release.yml, which calls this file
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+env:
+  UV_LOCKED: "1"  # uv.lock must match pyproject.toml as committed: never re-locked here
+  UV_PYTHON_PREFERENCE: only-managed  # uv's own Python 3.14, as on the dev PC
+
+jobs:
+  test:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e  # v10.3.2
+        with:
+          version: "0.12.15"  # = the dev PC; Python comes from .python-version
+      - run: uv run ruff check .
+      - run: uv run pytest -q -rs
+
+  build:
+    needs: test
+    runs-on: windows-latest
+    timeout-minutes: 40  # a dialog the silent install test did not expect would hang for hours
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e  # v10.3.2
+        with:
+          version: "0.12.15"
+      - run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts\build.ps1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: latentroom-setup
+          path: |
+            dist/Latentroom-Setup-*.exe
+            dist/Latentroom-Setup-*.exe.sha256
+          if-no-files-found: error

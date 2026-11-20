@@ -1,0 +1,42 @@
+name: Something does not work
+description: Report a problem with Latentroom.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never attach pictures made with Uncensored models or photos of real people.** Describe the picture in words instead.
+  - type: textarea
+    id: diagnostic
+    attributes:
+      label: Diagnostic report
+      description: >-
+        In Latentroom, open Settings and press **Copy diagnostic report**, then paste it here.
+        It holds versions, the graphics card and recent errors, never prompts or pictures.
+        If Latentroom does not open at all, write that here, with the name of the installer you used (it has the version).
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: gpu
+    attributes:
+      label: Graphics card
+      description: Task Manager → Performance → GPU shows its name and its "Dedicated GPU memory".
+      placeholder: NVIDIA GeForce RTX 3060, 12 GB
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      description: Start → Settings → System → About, under "Windows specifications".
+      placeholder: Windows 11 Home, 24H2
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what you saw instead. Copy any message word for word. Which model you used, if you know.
+    validations:
+      required: true

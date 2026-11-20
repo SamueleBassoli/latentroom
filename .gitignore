@@ -1,0 +1,15 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+build/
+dist/
+models/
+out/
+*.gguf
+*.safetensors
+*.pth
+*.part
+.env
+tools/

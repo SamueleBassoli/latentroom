@@ -1,0 +1,7 @@
+Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT, Copyright (c) 2026 Hangzhou Tongyi Laboratory Technology Co., Ltd. All Rights Reserved.
+
+Latentroom note: system_prompt_t2i.txt is the unmodified official text-to-image rewrite
+system prompt from https://github.com/QwenLM/Qwen-Image-2.1 (prompt_rewrite/prompts/,
+commit 7307809, sha256 a77c9a06c59b120741141d9514b95682bb8761d02bec49ca61def7b2b3d9fb99).
+LICENSE is a copy of that repository's licence. It covers this file only: Latentroom itself
+is free software under the GPL-3.0 (its LICENSE).

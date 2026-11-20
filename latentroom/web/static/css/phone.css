@@ -1,0 +1,96 @@
+/* ==========================================================================================
+   Phone layout, 390 x 844.
+   Phone = (max-width: 599px) = layout.bp-phone-max. The desktop layout does not change:
+   every rule that changes a desktop screen sits inside the media query below.
+   .desk-only  = hidden on phone (acts on the PC: folders, references, models, settings).
+   .only-phone = hidden on desktop (Save to phone, More settings, the model line under Develop).
+   ========================================================================================== */
+.only-phone { display: none !important; }
+.ph-more-box { display: contents; }
+.ph-back { display: none; } /* the Library back bar (phone.js), shown only with a picture open on phone */
+
+@media (max-width: 599px) {
+  .only-phone { display: revert !important; }
+  .disclosure.only-phone, .btn.only-phone { display: flex !important; }
+  .desk-only, .kbd.desk-only { display: none !important; }
+  .ph-more-box { display: flex; flex-direction: column; gap: var(--space-20); }
+  .ph-more-box[hidden] { display: none; }
+
+  /* ---- shell: the page scrolls; top bar = logo only; tabs move to a bottom bar ---- */
+  html, body { height: auto; }
+  .app { display: block; height: auto; min-height: 100vh; min-width: 0; overflow: visible; padding-bottom: calc(var(--layout-phone-tabbar-h) + env(safe-area-inset-bottom)); box-sizing: border-box; }
+  .app.bare { padding-bottom: 0; }
+  .topbar { position: sticky; top: 0; height: var(--layout-topbar-h); padding: 0 var(--space-16); }
+  .tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-topbar); height: calc(var(--layout-phone-tabbar-h) + env(safe-area-inset-bottom)); padding: 0 0 env(safe-area-inset-bottom); gap: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; background: var(--color-bg); border-top: 1px solid var(--color-border-default); }
+  .tab { height: var(--layout-phone-tabbar-h); justify-content: center; border-radius: 0; background: transparent; padding: 0 var(--space-8); }
+  .tab:hover, .tab[aria-selected="true"] { background: transparent; }
+  .tab[aria-selected="true"] { color: var(--color-text-1); box-shadow: inset 0 2px 0 var(--color-text-1); }
+
+  /* ---- every control 44 tall (size.control-lg); inputs 16px so iOS does not zoom ---- */
+  .btn, .btn.sm, .input, .select { height: var(--size-control-lg); }
+  .btn.icon, .btn.icon.sm { width: var(--size-control-lg); }
+  .btn.sm { padding: 0 var(--space-12); }
+  .disclosure { height: var(--size-control-lg); }
+  .seg button { height: 38px; }
+  .seg.tall button { height: 44px; }
+  .range { height: var(--size-control-lg); }
+  .switch::before { content: ""; position: absolute; inset: -12px -8px; }
+  .input, .textarea, .select, .input.num { font-size: 16px; }
+  .select-wrap .i { top: 14px; }
+  .linkbtn { height: var(--size-control-lg); }
+
+  /* ---- Develop: stage on top, settings under it, Develop sticks above the tab bar ---- */
+  .develop { display: flex; flex-direction: column; min-height: 0; }
+  .stage { order: 1; padding: var(--space-12) var(--space-16) var(--space-16); scroll-margin-top: var(--layout-topbar-h); }
+  .tray-head { height: auto; min-height: 32px; flex-wrap: wrap; row-gap: var(--space-8); } /* grows to the 44px buttons and to a wrapped second row */
+  .th-right { flex-wrap: wrap; }
+  .col-left { order: 2; border-right: 0; border-top: 1px solid var(--color-border-default); }
+  .col-left .scroll { overflow: visible; padding: var(--space-16); }
+  .col-left .footer { position: sticky; bottom: calc(var(--layout-phone-tabbar-h) + env(safe-area-inset-bottom)); z-index: var(--z-sticky); padding: var(--space-12) var(--space-16); gap: var(--space-6); }
+  .col-left .footer .summary { display: none; }
+  .fmodel { font: var(--type-mono-sm); color: var(--color-text-3); text-align: center; }
+  /* no Recent on phone: the Library tab is one tap away */
+  .col-right, .develop.recent-open .col-right, .tray-head .only-narrow { display: none !important; }
+  /* v2 "From a picture" is PC-only: no Start switch on phone */
+  #g-start { display: none !important; }
+  /* the diagnostic report reads the PC's logs (/api/diagnostics is desktop-only) */
+  .problem [data-p-diag] { display: none !important; }
+  .strip { grid-auto-columns: calc((100% - 3 * var(--space-8)) / 4); gap: var(--space-8); }
+  .err-panel { max-width: calc(100% - 2 * var(--space-16)); }
+
+  /* ---- Library: 3-column contact sheet; a tapped picture opens full screen ---- */
+  .library { display: block; }
+  .lib-main { display: block; }
+  .lib-head { flex-wrap: wrap; gap: var(--space-8) var(--space-12); padding: var(--space-12) var(--space-16); }
+  .lib-head .lsearch { flex: 1 1 100%; }
+  .lsearch .kbd { display: none; }
+  .lib-body { padding: 0 var(--space-16) var(--space-16); overflow: visible; }
+  .lib-body.center { min-height: 60vh; }
+  .day-head { top: var(--layout-topbar-h); }
+  .sheet { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-12) var(--space-8); }
+  .shot[aria-selected="true"] .ph::after { box-shadow: none; }
+  .shot[aria-selected="true"] .lab { color: var(--color-text-3); }
+  .lib-panel { display: none; }
+  .library.ph-open .lib-panel { display: flex; position: fixed; inset: 0; z-index: var(--z-popover); border-left: 0; background: var(--color-surface-1); padding-top: var(--layout-topbar-h); padding-bottom: env(safe-area-inset-bottom); overflow-y: auto; scrollbar-width: none; }
+  .library.ph-open .lp-scroll { flex: none; }
+  .library.ph-open .lp-img, .library.ph-open .lp-missing { height: auto; min-height: 204px; max-height: 56vh; }
+  .library.ph-open .ph-back { display: flex; align-items: center; gap: var(--space-8); position: fixed; top: 0; left: 0; right: 0; height: var(--layout-topbar-h); padding: 0 var(--space-8); z-index: calc(var(--z-popover) + 1); background: var(--color-surface-1); border-bottom: 1px solid var(--color-border-default); }
+  .ph-back .i.back { transform: rotate(90deg); }
+  .ph-back .t-mono-sm { margin-left: auto; padding-right: var(--space-8); color: var(--color-text-3); }
+
+  /* ---- overlays ---- */
+  .toast { bottom: calc(var(--layout-phone-tabbar-h) + env(safe-area-inset-bottom) + var(--space-16)); max-width: calc(100% - 2 * var(--space-16)); width: max-content; box-sizing: border-box; }
+  .dialog { max-width: calc(100vw - 2 * var(--space-16)); box-sizing: border-box; }
+
+  /* ---- pairing screen: bare, one column, code input ---- */
+  .phpair .prob { padding: var(--space-24) var(--space-16); }
+  .phpair .pbody { padding: var(--space-24) 0; justify-content: flex-start; }
+}
+
+/* pairing screen parts (also readable on a desktop window, but only the phone listener serves it) */
+.phpair .pbody .pic { color: var(--color-text-1); }
+.phpair .codein { display: flex; flex-direction: column; gap: var(--space-8); margin-top: var(--space-12); }
+.phpair .codein .input { font: var(--type-mono-lg); font-size: 22px; letter-spacing: .3em; text-align: center; height: var(--size-control-lg); font-variant-numeric: tabular-nums; }
+.phpair .codein .input[aria-invalid="true"] { border-color: var(--color-text-2); }
+.phpair .steps { margin: 0; padding-left: 20px; font: var(--type-body); color: var(--color-text-2); display: flex; flex-direction: column; gap: var(--space-6); }
+.phpair .busy { display: flex; align-items: center; gap: var(--space-8); font: var(--type-body); color: var(--color-text-2); }

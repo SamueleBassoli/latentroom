@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Latentroom</title>
+<link rel="icon" href="/icon.ico">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/screens.css">
+<link rel="stylesheet" href="/css/setup.css">
+<link rel="stylesheet" href="/css/develop2.css">
+<link rel="stylesheet" href="/css/phone.css">
+</head>
+<body>
+<div class="app" id="app">
+  <header class="topbar">
+    <a class="logo" href="#develop" aria-label="Latentroom, go to Develop"><img src="/logo-horizontal.svg" alt="" height="20"></a>
+    <nav class="tabs" role="tablist" aria-label="Main">
+      <a class="tab" role="tab" aria-selected="true" href="#develop" id="tab-develop">Develop<lr-loader id="tab-dot" hidden></lr-loader></a>
+      <a class="tab" role="tab" aria-selected="false" href="#library" id="tab-library">Library</a>
+      <a class="tab desk-only" role="tab" aria-selected="false" href="#models" id="tab-models">Models</a>
+    </nav>
+    <div class="tb-right desk-only">
+      <button class="chip" type="button" title="Change model (opens Models)" id="chip"><span class="sdot" id="chip-dot"></span><span id="chip-name">No model yet</span> <span class="q" id="chip-q"></span></button>
+      <div class="vram" title="Video memory in use on this PC by all apps." id="vram" hidden><span class="lab">VRAM</span><span class="meter"><i id="vram-bar" style="width:0%"></i></span><span id="vram-txt"></span></div>
+      <button class="btn ghost icon" type="button" aria-label="Settings" title="Settings" id="btn-settings" aria-pressed="false"><svg class="i"><use href="#i-gear"/></svg></button>
+    </div>
+  </header>
+
+  <main class="develop" id="screen-develop">
+    <section class="col-left" aria-label="Picture settings">
+      <div class="scroll">
+        <div class="field desk-only" id="g-refs">
+          <div class="lab-row"><span class="label">References</span></div>
+          <button class="drop" type="button" id="drop"><svg class="i"><use href="#i-image"/></svg><span><span class="t-body">Drop pictures or <u>browse</u></span><br><span class="help">PNG, JPG or WebP</span></span></button>
+          <input type="file" id="ref-file" accept="image/png,image/jpeg,image/webp" multiple hidden>
+          <div class="refs" id="refs" hidden></div>
+          <p class="help" id="refs-help">Optional. Add pictures to edit or combine them.</p>
+        </div>
+
+        <div class="field">
+          <div class="lab-row"><label class="label" for="prompt" id="prompt-label">Prompt</label><span class="enh"><button class="btn ghost sm" type="button" id="enh-undo" hidden><svg class="i sm"><use href="#i-undo"/></svg>Undo</button><button class="btn ghost sm" type="button" id="enh" aria-disabled="true"><svg class="i sm"><use href="#i-sparkle"/></svg>Enhance prompt</button></span></div>
+          <textarea class="textarea" id="prompt" placeholder="Describe the picture, e.g. a fisherman's hut on a frozen lake at first light"></textarea>
+          <div class="err-line" id="prompt-err" hidden><svg class="i sm"><use href="#i-alert"/></svg>Write what you want to see first.</div>
+        </div>
+
+        <div class="field ph-more" id="g-neg">
+          <button class="linkbtn" type="button" id="neg-open"><svg class="i sm"><use href="#i-plus"/></svg>Negative prompt</button>
+          <div class="field" id="neg-box" hidden>
+            <div class="lab-row"><label class="label" for="neg">Negative prompt</label><button class="btn ghost icon sm" type="button" id="neg-close" aria-label="Hide negative prompt" title="Hide (keeps the text)"><svg class="i sm"><use href="#i-x"/></svg></button></div>
+            <textarea class="textarea short" id="neg" placeholder="e.g. text, watermark, blurry"></textarea>
+            <p class="help" id="neg-help">Things to keep out of the picture.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="label" id="size-label">Size</span>
+          <div class="seg tall" role="radiogroup" aria-labelledby="size-label" id="sizes"></div>
+          <div class="wh">
+            <span>W</span><input class="input num" id="w" inputmode="numeric" aria-label="Width in pixels" value="1024">
+            <span>×</span>
+            <span>H</span><input class="input num" id="h" inputmode="numeric" aria-label="Height in pixels" value="1024">
+          </div>
+          <p class="help" id="size-help" hidden>Sizes snap to steps of 32. Very large sizes can show a faint grid pattern with this model: make the picture at a normal size, then use Upscale ×4.</p>
+        </div>
+
+        <div class="field ph-more">
+          <div class="lab-row"><label class="label" for="steps">Steps</label><span class="val" id="steps-v">40</span></div>
+          <input class="range" type="range" id="steps" min="4" max="60" step="1" value="40">
+          <p class="help" id="steps-help">More steps: more detail, slower.</p>
+        </div>
+
+        <div class="field ph-more">
+          <div class="lab-row"><label class="label" for="cfg">Guidance</label><span class="val" id="cfg-v">2.5</span></div>
+          <input class="range" type="range" id="cfg" min="1" max="10" step="0.5" value="2.5">
+          <p class="help" id="cfg-help">How strictly the picture follows the prompt.</p>
+        </div>
+
+        <div class="field ph-more">
+          <label class="label" for="seed">Seed</label>
+          <div class="seed-row">
+            <input class="input num" id="seed" inputmode="numeric" placeholder="Random">
+            <button class="btn icon" type="button" id="dice" aria-label="New random seed" title="New random seed"><svg class="i"><use href="#i-dice"/></svg></button>
+            <button class="btn icon" type="button" id="lock" aria-pressed="false" aria-label="Keep this seed" title="Keep this seed"><svg class="i"><use href="#i-unlock"/></svg></button>
+          </div>
+          <p class="help">Same seed and settings give the same picture.</p>
+        </div>
+
+        <div class="field">
+          <span class="label" id="frames-label">Frames</span>
+          <div class="seg" role="radiogroup" aria-labelledby="frames-label" id="frames">
+            <button type="button" role="radio" aria-checked="true" data-n="1">1</button>
+            <button type="button" role="radio" aria-checked="false" data-n="2">2</button>
+            <button type="button" role="radio" aria-checked="false" data-n="4">4</button>
+            <button type="button" role="radio" aria-checked="false" data-n="8">8</button>
+          </div>
+          <p class="help">How many pictures to make.</p>
+        </div>
+
+        <div class="field ph-more">
+          <div class="lab-row"><span class="label">LoRA styles</span><button class="btn ghost sm desk-only" type="button" title="Opens the LoRA folder in File Explorer" data-open-loras><svg class="i sm"><use href="#i-folder"/></svg>Open folder</button></div>
+          <div id="loras"></div>
+          <div class="pop-anchor">
+            <div class="popover" id="lora-pop" role="dialog" aria-label="Add a LoRA" hidden>
+              <div class="search"><svg class="i"><use href="#i-search"/></svg><input class="input" id="lora-find" placeholder="Find a LoRA" aria-label="Find a LoRA"></div>
+              <div class="list" id="lora-list"></div>
+              <div class="foot"><button class="btn ghost sm" type="button" id="lora-refresh"><svg class="i sm"><use href="#i-refresh"/></svg>Refresh</button><button class="btn sm" type="button" id="lora-done">Done</button></div>
+            </div>
+            <button class="btn block" type="button" id="lora-add"><svg class="i sm"><use href="#i-plus"/></svg>Add LoRA</button>
+          </div>
+          <p class="help">Style add-ons. Weight 1 = full effect.</p>
+        </div>
+
+        <div class="toggle-row">
+          <span class="t-body-strong" id="turbo-label"><svg class="i sm"><use href="#i-bolt"/></svg>Turbo</span>
+          <button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="turbo-label" id="turbo"></button>
+          <p class="help" id="turbo-help">Faster, a bit less detail.</p>
+        </div>
+
+        <button class="disclosure only-phone" type="button" aria-expanded="false" aria-controls="ph-more" id="ph-more-btn">More settings <span class="sum">steps, seed, LoRA</span><svg class="i"><use href="#i-chevron"/></svg></button>
+        <div class="field ph-more">
+          <button class="disclosure" type="button" aria-expanded="false" aria-controls="adv" id="adv-btn">Advanced <span class="sum">euler · default</span><svg class="i"><use href="#i-chevron"/></svg></button>
+          <div class="field" id="adv" hidden>
+            <label class="label" for="sampler">Sampler</label>
+            <div class="select-wrap"><select class="select" id="sampler"><option>euler</option><option>euler_a</option><option>heun</option><option>dpm2</option><option>dpm++2s_a</option><option>dpm++2m</option><option>dpm++2mv2</option><option>ipndm</option><option>ipndm_v</option><option>lcm</option></select><svg class="i"><use href="#i-chevron"/></svg></div>
+            <label class="label" for="scheduler">Scheduler</label>
+            <div class="select-wrap"><select class="select" id="scheduler"><option value="">Default</option><option>discrete</option><option>karras</option><option>exponential</option><option>ays</option><option>gits</option></select><svg class="i"><use href="#i-chevron"/></svg></div>
+            <p class="help">Leave these alone unless a guide tells you otherwise.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="fit" id="fit"></div>
+        <button class="btn primary block" type="button" id="go" disabled><span id="go-t">Develop</span><span class="kbd desk-only">Ctrl + Enter</span></button>
+        <div class="fmodel only-phone" id="fmodel"></div>
+        <div class="summary" id="summary"></div>
+      </div>
+    </section>
+
+    <section class="stage" aria-label="Developing tray">
+      <div class="tray-head">
+        <div class="th-left" id="th-left"></div>
+        <span class="vh" id="th-say" aria-live="polite"></span>
+        <div class="th-right" id="th-right"></div>
+        <button class="btn ghost sm only-narrow" type="button" id="recent-btn" aria-expanded="false">Recent</button>
+      </div>
+      <div class="tray-wrap" id="tray-wrap">
+        <div class="tray" id="tray">
+          <canvas id="field" aria-hidden="true"></canvas>
+          <div class="count" id="count" hidden><div class="n" id="count-n"></div><div class="l" id="count-l"></div></div>
+          <span class="tag size" id="size-tag"></span>
+          <div class="pline" id="pline" hidden><i id="pline-i"></i></div>
+          <div class="overlay" id="overlay" hidden></div>
+        </div>
+      </div>
+      <div class="warnline" id="warnline" hidden></div>
+      <div class="strip" id="strip" hidden></div>
+      <div class="meta" id="meta"></div>
+    </section>
+
+    <aside class="col-right" aria-label="Recent">
+      <div class="head"><span class="t-title">Recent</span><a class="btn ghost sm" href="#library">View all</a></div>
+      <div class="recent" id="recent"></div>
+    </aside>
+  </main>
+
+  <main class="library" id="screen-library" hidden>
+    <section class="lib-main" aria-label="Pictures">
+      <div class="lib-head">
+        <label class="lsearch">
+          <svg class="i sm"><use href="#i-search"/></svg>
+          <input class="input" id="lib-search" type="search" placeholder="Search prompts" aria-label="Search the library" autocomplete="off" maxlength="500">
+          <kbd class="kbd" aria-hidden="true">/</kbd>
+        </label>
+        <div class="pills" role="radiogroup" aria-label="Show" id="lib-filter">
+          <button type="button" role="radio" aria-checked="true" data-f="all">All</button>
+          <button type="button" role="radio" aria-checked="false" data-f="starred"><svg class="i sm"><use href="#i-star"/></svg>Starred</button>
+        </div>
+        <span class="lib-order">Newest first</span>
+      </div>
+      <div class="lib-body scrolly" id="lib-body"></div>
+    </section>
+    <aside class="lib-panel" id="lib-panel" aria-label="Selected picture"></aside>
+  </main>
+  <main class="models scrolly" id="screen-models" hidden>
+    <div class="page">
+      <header class="page-head">
+        <h1 class="t-title-page">Models &amp; hardware</h1>
+        <p class="sub">Everything runs on this PC. Nothing leaves it.</p>
+      </header>
+      <div class="hw" id="hw"></div>
+      <section class="msec" aria-labelledby="h-models">
+        <div class="msec-head">
+          <div><h2 class="t-title" id="h-models">Picture models</h2><p class="help" id="fit-note">Fit is checked for 1248 × 832, the size set in Develop.</p><p class="help" id="lic-note"></p></div>
+          <button class="btn" type="button" data-import><svg class="i sm"><use href="#i-folder"/></svg>Import from a folder</button>
+        </div>
+        <div class="pairs" id="pairs" role="table" aria-label="Picture models"></div>
+        <button class="btn ghost showall" type="button" id="showall" hidden></button>
+      </section>
+      <section class="msec" aria-labelledby="h-parts">
+        <div class="msec-head">
+          <div><h2 class="t-title" id="h-parts">Parts every model needs</h2><p class="help">Downloaded once and shared by all picture models.</p></div>
+        </div>
+        <div class="parts" id="parts"></div>
+      </section>
+      <section class="msec" aria-labelledby="h-loras">
+        <div class="msec-head">
+          <div><h2 class="t-title" id="h-loras">LoRAs</h2><p class="help">Small add-on files that steer the style. Put <code>.safetensors</code> files in the LoRA folder; set the weight per picture in Develop.</p></div>
+          <div class="acts"><button class="btn ghost icon" type="button" aria-label="Look for new LoRA files" title="Look for new LoRA files" data-lora-refresh><svg class="i"><use href="#i-refresh"/></svg></button><button class="btn" type="button" data-open-loras><svg class="i sm"><use href="#i-folder"/></svg>Open LoRA folder</button></div>
+        </div>
+        <div class="loras" id="loras"></div>
+      </section>
+    </div>
+  </main>
+  <main class="settings scrolly" id="screen-settings" hidden>
+    <div class="page set-page">
+      <header class="page-head">
+        <h1 class="t-title-page">Settings</h1>
+        <p class="sub">Changes are saved at once.</p>
+      </header>
+      <div id="set-body"></div>
+    </div>
+  </main>
+  <main class="wizard scrolly" id="screen-wizard" hidden aria-labelledby="wiz-title"></main>
+  <main class="problem" id="screen-problem" hidden></main>
+  <main class="problem phpair" id="screen-pair" hidden></main>
+</div>
+
+<div class="scrim" id="dialog" hidden><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-title" id="dlg"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/develop-field.js"></script>
+<script src="/app.js" type="module"></script>
+</body>
+</html>

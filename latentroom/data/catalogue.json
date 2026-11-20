@@ -1,0 +1,502 @@
+{
+ "comment": "Generated; do not edit by hand.",
+ "generated": "2026-10-24",
+ "files": [
+  {
+   "id": "std-q2_k",
+   "name": "qwen_image_2.1-Q2_K.gguf",
+   "url": "https://huggingface.co/leejet/Qwen-Image-2.1-GGUF/resolve/cc11433936a06e9765f7c0c0b1f0436cfd2b9856/qwen_image_2.1-Q2_K.gguf",
+   "size": 2561716256,
+   "sha256": "5f79e41d3424abb230ee1486e1f4adab1b07c8c0fd10601fc402fe9890443fe6",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "std-q3_k",
+   "name": "qwen_image_2.1-Q3_K.gguf",
+   "url": "https://huggingface.co/leejet/Qwen-Image-2.1-GGUF/resolve/cc11433936a06e9765f7c0c0b1f0436cfd2b9856/qwen_image_2.1-Q3_K.gguf",
+   "size": 3270553632,
+   "sha256": "5a6352cb450d334ba17a9d18c7fd8c3e774799245b9da0f963ce0c6624deb758",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "std-q4_k",
+   "name": "qwen_image_2.1-Q4_K.gguf",
+   "url": "https://huggingface.co/leejet/Qwen-Image-2.1-GGUF/resolve/cc11433936a06e9765f7c0c0b1f0436cfd2b9856/qwen_image_2.1-Q4_K.gguf",
+   "size": 4197494816,
+   "sha256": "29f9c83c249ff0292fb2943fceddfa2319b446601866c82a4f8be062abea72c2",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "std-q5_0",
+   "name": "qwen_image_2.1-Q5_0.gguf",
+   "url": "https://huggingface.co/leejet/Qwen-Image-2.1-GGUF/resolve/cc11433936a06e9765f7c0c0b1f0436cfd2b9856/qwen_image_2.1-Q5_0.gguf",
+   "size": 5069910048,
+   "sha256": "8dfeb1ee091a5d7c7d8191f69723254f031de8fe67ec219a21bf7df57590ab43",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "std-q6_k",
+   "name": "qwen_image_2.1-Q6_K.gguf",
+   "url": "https://huggingface.co/leejet/Qwen-Image-2.1-GGUF/resolve/cc11433936a06e9765f7c0c0b1f0436cfd2b9856/qwen_image_2.1-Q6_K.gguf",
+   "size": 5996851232,
+   "sha256": "1c51d1a8e6cf2b215719dea0c4f0f4cbfff9214a1c7571e57913f57d6a9c3c12",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "std-q8_0",
+   "name": "qwen_image_2.1-Q8_0.gguf",
+   "url": "https://huggingface.co/leejet/Qwen-Image-2.1-GGUF/resolve/cc11433936a06e9765f7c0c0b1f0436cfd2b9856/qwen_image_2.1-Q8_0.gguf",
+   "size": 7687155744,
+   "sha256": "f8b244b00937f0e444a40dbf7866460871b89b30142594973b6012d1b471dc0a",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "uc-q4_0",
+   "name": "qwen-image-2.1-UC-Q4_0.gguf",
+   "url": "https://huggingface.co/KasugaiSakura/Qwen-Image-2.1-Uncensored-Abenzerps-GGUF/resolve/240ef1d68f778115f8ff69965eca9ad6d3ccdcf1/qwen-image-2.1-UC-Q4_0.gguf",
+   "size": 4151573280,
+   "sha256": "13f59f20656efc0aa385d03c1fcac1a9dc2ad6e5ccc0ea9bfe1d6ac636f2c5b9",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "uc-q5_k_m",
+   "name": "qwen-image-2.1-UC-Q5_K_M.gguf",
+   "url": "https://huggingface.co/KasugaiSakura/Qwen-Image-2.1-Uncensored-Abenzerps-GGUF/resolve/240ef1d68f778115f8ff69965eca9ad6d3ccdcf1/qwen-image-2.1-UC-Q5_K_M.gguf",
+   "size": 5221284640,
+   "sha256": "af0bf278cf16d204fb31c384dc82fd41dca82d976b15fe9305a60c726fd6f821",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "uc-q6_k",
+   "name": "qwen-image-2.1-UC-Q6_K.gguf",
+   "url": "https://huggingface.co/KasugaiSakura/Qwen-Image-2.1-Uncensored-Abenzerps-GGUF/resolve/240ef1d68f778115f8ff69965eca9ad6d3ccdcf1/qwen-image-2.1-UC-Q6_K.gguf",
+   "size": 5876556576,
+   "sha256": "e14bb312109333b3d73b92ad9b9ac8b29b51f2edca1e7b86d1af1981bf1c4ee3",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "uc-q8_0",
+   "name": "qwen-image-2.1-UC-Q8_0.gguf",
+   "url": "https://huggingface.co/KasugaiSakura/Qwen-Image-2.1-Uncensored-Abenzerps-GGUF/resolve/240ef1d68f778115f8ff69965eca9ad6d3ccdcf1/qwen-image-2.1-UC-Q8_0.gguf",
+   "size": 7591557920,
+   "sha256": "cde456c72ea3ecebfc1be783300e972711d875e0c5f1bed33d42b66b156affa8",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "turbo-q3_k_xl",
+   "name": "qwen-image-2.1-turbo-Q3_K_XL.gguf",
+   "url": "https://huggingface.co/unsloth/Qwen-Image-2.1-Turbo-GGUF/resolve/5d1f9f759ea877ae556cda88dbec958b62ad3809/qwen-image-2.1-turbo-Q3_K_XL.gguf",
+   "size": 3612493632,
+   "sha256": "b0a97d37640a2dc0d8205cd357464c550be96c81830d3ca296b5490b40593b42",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "turbo-q4_k_m",
+   "name": "qwen-image-2.1-turbo-Q4_K_M.gguf",
+   "url": "https://huggingface.co/unsloth/Qwen-Image-2.1-Turbo-GGUF/resolve/5d1f9f759ea877ae556cda88dbec958b62ad3809/qwen-image-2.1-turbo-Q4_K_M.gguf",
+   "size": 4199565120,
+   "sha256": "8940e8b522af886e0c0f5afddf720e82dd223cb9a43580b5f61c4d740452ac20",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "turbo-q6_k",
+   "name": "qwen-image-2.1-turbo-Q6_K.gguf",
+   "url": "https://huggingface.co/unsloth/Qwen-Image-2.1-Turbo-GGUF/resolve/5d1f9f759ea877ae556cda88dbec958b62ad3809/qwen-image-2.1-turbo-Q6_K.gguf",
+   "size": 6271551296,
+   "sha256": "f4560fb47ad863ffed7e32737d3c42988c44bd0c459606777d7ffe2e895d0a70",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "turbo-q8_0",
+   "name": "qwen-image-2.1-turbo-Q8_0.gguf",
+   "url": "https://huggingface.co/unsloth/Qwen-Image-2.1-Turbo-GGUF/resolve/5d1f9f759ea877ae556cda88dbec958b62ad3809/qwen-image-2.1-turbo-Q8_0.gguf",
+   "size": 7640860480,
+   "sha256": "399d2ddc3636f36456e2f5bfa57187da4e38721bc046430317f42a9eab5b1712",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "diffusion"
+  },
+  {
+   "id": "vae",
+   "name": "texture_fix_vae_for_qwen_image_2.1_bf16.safetensors",
+   "url": "https://huggingface.co/madebyollin/texture-fix-vae-for-qwen-image-2.1/resolve/9a10df811f183323e4e94d255c18add1924ce340/texture_fix_vae_for_qwen_image_2.1_bf16.safetensors",
+   "size": 675509688,
+   "sha256": "36f56608b02077a50a08ea3dbcdb88351298ceba49948f41f9f87186378e6908",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "vae"
+  },
+  {
+   "id": "llm-q4_k_m",
+   "name": "Qwen3VL-8B-Instruct-Q4_K_M.gguf",
+   "url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct-GGUF/resolve/f982a07559d4a2f6c8744d840bf6fccab30eea96/Qwen3VL-8B-Instruct-Q4_K_M.gguf",
+   "size": 5027784800,
+   "sha256": "67d1659bfe71b89d50b45a4ad1a9e5b997e5bb16ce5da66a6a6167abd569e9e2",
+   "licence": "Apache-2.0",
+   "kind": "llm"
+  },
+  {
+   "id": "mmproj",
+   "name": "mmproj-Qwen3VL-8B-Instruct-F16.gguf",
+   "url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct-GGUF/resolve/f982a07559d4a2f6c8744d840bf6fccab30eea96/mmproj-Qwen3VL-8B-Instruct-F16.gguf",
+   "size": 1159029824,
+   "sha256": "ca524100ebf825c9a870db1c580d03879e0da0ab2541697e2458e64891cf9d38",
+   "licence": "Apache-2.0",
+   "kind": "llm_vision"
+  },
+  {
+   "id": "turbo-lora",
+   "name": "qwen_image_2.1_turbo_lora_avg_rank_178_bf16.safetensors",
+   "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/0217efd1d9c9452e84f6448903d6e21bfa171ffd/loras/qwen_image_2.1_turbo_lora_avg_rank_178_bf16.safetensors",
+   "size": 913314512,
+   "sha256": "208dd43250e1e01467ba190572ae2e7107a7870ec1ff026bc65f791fa1e80e95",
+   "licence": "Qwen Research License (non-commercial)",
+   "kind": "lora"
+  },
+  {
+   "id": "face-yolov8n",
+   "name": "face_yolov8n.safetensors",
+   "url": "https://huggingface.co/exeterminal/adetailer-yolov8-safetensors/resolve/07ca0bd47f67955bf49e26c24d5aff8d161d81f2/face_yolov8n.safetensors",
+   "size": 6033980,
+   "sha256": "cfa9840e2e6b82a48d644af2924823e5eb26ef4333a90f840cc4f7dc49087fd7",
+   "licence": "AGPL-3.0",
+   "kind": "detector"
+  },
+  {
+   "id": "embed-q8_0",
+   "name": "embeddinggemma-2-Q8_0.gguf",
+   "url": "https://huggingface.co/ggml-org/embeddinggemma-2-GGUF/resolve/58faf90940886df2d62be555c8765d00dac362c5/embeddinggemma-2-Q8_0.gguf",
+   "size": 309855456,
+   "sha256": "2188ac1deca4b77dffefd603c2776a9d76d9d74ec01841392982ebb840b09135",
+   "licence": "Apache-2.0",
+   "kind": "embedding"
+  },
+  {
+   "id": "embed-mmproj-q8_0",
+   "name": "mmproj-embeddinggemma-2-Q8_0.gguf",
+   "url": "https://huggingface.co/ggml-org/embeddinggemma-2-GGUF/resolve/58faf90940886df2d62be555c8765d00dac362c5/mmproj-embeddinggemma-2-Q8_0.gguf",
+   "size": 554821024,
+   "sha256": "c4a8a52691ecef40618438928bdf9e68379b854e24166f292592353db0aab64f",
+   "licence": "Apache-2.0",
+   "kind": "embedding_vision"
+  },
+  {
+   "id": "esrgan-x4",
+   "name": "RealESRGAN_x4plus.pth",
+   "url": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth",
+   "size": 67040989,
+   "sha256": "4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1",
+   "licence": "BSD-3-Clause",
+   "kind": "upscaler"
+  }
+ ],
+ "models": [
+  {
+   "id": "std-q2_k",
+   "family": "standard",
+   "quant": "Q2_K",
+   "file": "std-q2_k",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "std-q3_k",
+   "family": "standard",
+   "quant": "Q3_K",
+   "file": "std-q3_k",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "std-q4_k",
+   "family": "standard",
+   "quant": "Q4_K",
+   "file": "std-q4_k",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "std-q5_0",
+   "family": "standard",
+   "quant": "Q5_0",
+   "file": "std-q5_0",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "std-q6_k",
+   "family": "standard",
+   "quant": "Q6_K",
+   "file": "std-q6_k",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "std-q8_0",
+   "family": "standard",
+   "quant": "Q8_0",
+   "file": "std-q8_0",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "uc-q4_0",
+   "family": "uncensored",
+   "quant": "Q4_0",
+   "file": "uc-q4_0",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": true,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "uc-q5_k_m",
+   "family": "uncensored",
+   "quant": "Q5_K_M",
+   "file": "uc-q5_k_m",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": true,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "uc-q6_k",
+   "family": "uncensored",
+   "quant": "Q6_K",
+   "file": "uc-q6_k",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": true,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "uc-q8_0",
+   "family": "uncensored",
+   "quant": "Q8_0",
+   "file": "uc-q8_0",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": true,
+   "experimental": false,
+   "steps": 40,
+   "cfg": 2.5,
+   "sigmas": null
+  },
+  {
+   "id": "turbo-q3_k_xl",
+   "family": "turbo",
+   "quant": "Q3_K_XL",
+   "file": "turbo-q3_k_xl",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": true,
+   "steps": 8,
+   "cfg": 1.0,
+   "sigmas": "qwen-image-2.1-turbo"
+  },
+  {
+   "id": "turbo-q4_k_m",
+   "family": "turbo",
+   "quant": "Q4_K_M",
+   "file": "turbo-q4_k_m",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": true,
+   "steps": 8,
+   "cfg": 1.0,
+   "sigmas": "qwen-image-2.1-turbo"
+  },
+  {
+   "id": "turbo-q6_k",
+   "family": "turbo",
+   "quant": "Q6_K",
+   "file": "turbo-q6_k",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": true,
+   "steps": 8,
+   "cfg": 1.0,
+   "sigmas": "qwen-image-2.1-turbo"
+  },
+  {
+   "id": "turbo-q8_0",
+   "family": "turbo",
+   "quant": "Q8_0",
+   "file": "turbo-q8_0",
+   "needs": [
+    "vae",
+    "llm-q4_k_m",
+    "mmproj"
+   ],
+   "adult": false,
+   "experimental": true,
+   "steps": 8,
+   "cfg": 1.0,
+   "sigmas": "qwen-image-2.1-turbo"
+  }
+ ],
+ "pairs": [
+  {
+   "id": "q8",
+   "label": "Best quality",
+   "standard": "std-q8_0",
+   "uncensored": "uc-q8_0",
+   "fast": false
+  },
+  {
+   "id": "q6",
+   "label": "High quality",
+   "standard": "std-q6_k",
+   "uncensored": "uc-q6_k",
+   "fast": false
+  },
+  {
+   "id": "q5",
+   "label": "Good quality",
+   "standard": "std-q5_0",
+   "uncensored": "uc-q5_k_m",
+   "fast": false
+  },
+  {
+   "id": "q4",
+   "label": "Balanced",
+   "standard": "std-q4_k",
+   "uncensored": "uc-q4_0",
+   "fast": false
+  },
+  {
+   "id": "q3",
+   "label": "Light",
+   "standard": "std-q3_k",
+   "uncensored": null,
+   "fast": false
+  },
+  {
+   "id": "q2",
+   "label": "Smallest",
+   "standard": "std-q2_k",
+   "uncensored": null,
+   "fast": false
+  },
+  {
+   "id": "turbo-q8",
+   "label": "Fast, best quality",
+   "standard": "turbo-q8_0",
+   "uncensored": null,
+   "fast": true
+  },
+  {
+   "id": "turbo-q6",
+   "label": "Fast, high quality",
+   "standard": "turbo-q6_k",
+   "uncensored": null,
+   "fast": true
+  },
+  {
+   "id": "turbo-q4",
+   "label": "Fast, balanced",
+   "standard": "turbo-q4_k_m",
+   "uncensored": null,
+   "fast": true
+  },
+  {
+   "id": "turbo-q3",
+   "label": "Fast, light",
+   "standard": "turbo-q3_k_xl",
+   "uncensored": null,
+   "fast": true
+  }
+ ]
+}

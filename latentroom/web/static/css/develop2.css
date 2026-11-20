@@ -1,0 +1,66 @@
+/* Develop v2 "From a picture"; the starting picture is an img, not a canvas */
+/* Start: segmented control with words (the v1 .seg uses mono for numbers) */
+.seg.words button { font: var(--type-body); flex-direction: row; gap: var(--space-6); }
+.seg.words button .i { color: var(--color-text-2); }
+.seg.words button[aria-checked="true"] .i { color: var(--color-text-1); }
+
+/* Picture slot */
+.drop.tall { height: var(--size-drop-tall); }
+.picslot { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-12); align-items: start; }
+.picslot .pthumb { position: relative; height: var(--size-picture-slot-h); max-width: 96px; padding: 0; border: 0; border-radius: var(--radius-xs); overflow: hidden; background: var(--color-surface-2); cursor: pointer; }
+.picslot .pthumb img { display: block; height: 100%; width: 100%; object-fit: cover; }
+.picslot .pthumb::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px var(--color-border-default); }
+.picslot .pthumb:hover::after { box-shadow: inset 0 0 0 1px var(--color-text-2); }
+.picslot .ptxt { display: flex; flex-direction: column; min-width: 0; }
+.picslot .pname { font: var(--type-mono-md); color: var(--color-text-1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.picslot .psize { font: var(--type-mono-sm); color: var(--color-text-3); }
+.picslot .ptxt .btn { align-self: flex-start; margin: var(--space-4) 0 0 calc(-1 * var(--space-8)); }
+
+/* What to do: radio rows */
+.dolist { display: flex; flex-direction: column; gap: var(--space-4); }
+.dorow { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 2px var(--space-12); align-items: start; width: 100%; padding: var(--space-8) var(--space-12); border: 1px solid transparent; border-radius: var(--radius-sm); background: transparent; color: var(--color-text-2); text-align: left; cursor: pointer; }
+.dorow .i { margin-top: 2px; }
+.dorow .t-body-strong { color: var(--color-text-1); }
+.dorow .help { grid-column: 2; }
+.dorow:hover { background: var(--color-surface-2); }
+.dorow[aria-checked="true"] { background: var(--color-surface-3); border-color: var(--color-border-strong); color: var(--color-text-1); }
+.dorow[aria-disabled="true"] { cursor: not-allowed; }
+.dorow[aria-disabled="true"] .i, .dorow[aria-disabled="true"] .t-body-strong { opacity: var(--opacity-disabled); }
+.dorow[aria-disabled="true"]:hover { background: transparent; }
+
+/* Strength: end labels under the slider */
+.ends { display: flex; justify-content: space-between; font: var(--type-mono-sm); color: var(--color-text-3); margin-top: calc(-1 * var(--space-4)); }
+
+/* Output size (replaces Size in From a picture) */
+.outrow { display: flex; align-items: baseline; justify-content: space-between; }
+
+/* Tray layers: starting picture, mask, brush ring, Before tag */
+.tray img#pic { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+.tray canvas#mask { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: none; touch-action: none; }
+.tray canvas#mask.small { cursor: crosshair; }
+.ring { position: absolute; left: 0; top: 0; border-radius: 50%; pointer-events: none; border: 1px solid var(--color-text-1); box-shadow: 0 0 0 1px var(--color-bg), inset 0 0 0 1px var(--color-bg); transform: translate(-50%, -50%); }
+.ring.erase { border-style: dashed; } /* the Eraser; the Brush stays solid */
+.tray .tag.before { position: absolute; left: 12px; top: 12px; }
+
+/* Mask toolbar under the tray */
+.mbar-wrap { flex: none; display: flex; flex-direction: column; align-items: center; gap: var(--space-8); margin-top: var(--space-12); }
+.mbar { display: flex; align-items: center; gap: var(--space-8); padding: var(--space-4); background: var(--color-surface-1); border: 1px solid var(--color-border-default); border-radius: var(--radius-md); max-width: 100%; }
+.mbar .seg { flex: none; }
+.mbar .seg button { padding: 0 var(--space-8); }
+.mbar .vsep { width: 1px; height: 20px; background: var(--color-border-default); flex: none; }
+.mbar .label { padding-left: var(--space-4); }
+.mbar .range { width: 96px; flex: none; }
+.mbar .val { font: var(--type-mono-sm); width: 28px; text-align: right; }
+
+/* Touch up menu (done header) */
+.tanchor { position: relative; display: inline-flex; }
+.tmenu { position: absolute; top: calc(100% + 6px); right: 0; z-index: var(--z-popover); width: 288px; padding: var(--space-4); background: var(--color-surface-2); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); box-shadow: var(--shadow-popover); display: flex; flex-direction: column; }
+.titem { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 0 var(--space-12); align-items: start; padding: var(--space-6) var(--space-8); border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--color-text-2); text-align: left; cursor: pointer; }
+.titem .i { margin-top: 2px; }
+.titem .t-body { color: var(--color-text-1); }
+.titem .help { grid-column: 2; }
+.titem:hover, .titem:focus-visible { background: var(--color-surface-3); }
+.titem[aria-disabled="true"] { cursor: not-allowed; }
+.titem[aria-disabled="true"] .i, .titem[aria-disabled="true"] .t-body { opacity: var(--opacity-disabled); }
+.tmenu hr { border: 0; border-top: 1px solid var(--color-border-default); margin: var(--space-4) 0; }
+.btn .chev { width: 12px; height: 12px; margin-right: -2px; }

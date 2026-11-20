@@ -1,0 +1,156 @@
+/* Design tokens, generated from the design source: colours, type, spacing, motion. */
+:root {
+  --color-bg: #0D0E10;
+  --color-surface-1: #111216;
+  --color-surface-2: #16171B;
+  --color-surface-3: #1C1D22;
+  --color-surface-4: #24252B;
+  --color-border-default: #26272D;
+  --color-border-strong: #34353C;
+  --color-border-field: #63646B; /* field outline, 3:1 on the field (surface-2) and behind it; border-strong + 47 per channel */
+  --color-track: #1E1F24;
+  --color-text-1: #EDECE8;
+  --color-text-2: #9A968F;
+  --color-text-3: #8A8782;
+  --color-text-faint: #83807A; /* was #6B6862 (3.37:1); + 24 per channel = 4.5:1 on bg, surface-1 and -2 */
+  --color-text-on-primary: #0D0E10;
+  --color-primary-default: #EDECE8;
+  --color-primary-hover: #F6F5F1;
+  --color-primary-pressed: #D8D7D2;
+  --color-accent: #FF5A3D;
+  --color-accent-a16: rgba(255, 90, 61, 0.16);
+  --color-status-ok: #5DBB7F;
+  --color-status-warn: #E3A33E;
+  --color-status-danger: var(--color-accent);
+  --color-focus: #EDECE8;
+  --color-scrim: rgba(5, 6, 7, 0.72);
+  --color-mask-light: rgba(237, 236, 232, 0.6);
+  --color-mask-dark: rgba(13, 14, 16, 0.45);
+  --color-selection: rgba(237, 236, 232, 0.18);
+  --color-brand-warm-grey: #8A8782;
+  --color-brand-off-white: #EDECE8;
+  --color-brand-tile: #16171B;
+  --color-brand-light-bg: #EBEAE6;
+  --font-sans: 'Geist', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Cascadia Mono', 'Consolas', monospace;
+  --type-title-page: 500 24px/32px var(--font-sans);
+  --type-title-page-ls: -0.02em;
+  --type-title: 600 15px/20px var(--font-sans);
+  --type-title-ls: -0.01em;
+  --type-body: 400 13px/20px var(--font-sans);
+  --type-body-ls: 0;
+  --type-body-strong: 500 13px/20px var(--font-sans);
+  --type-body-strong-ls: 0;
+  --type-label: 500 12px/16px var(--font-sans);
+  --type-label-ls: 0;
+  --type-help: 400 12px/16px var(--font-sans);
+  --type-help-ls: 0;
+  --type-button: 500 13px/16px var(--font-sans);
+  --type-button-ls: 0;
+  --type-button-lg: 600 14px/20px var(--font-sans);
+  --type-button-lg-ls: 0;
+  --type-mono-sm: 400 11px/16px var(--font-mono);
+  --type-mono-sm-ls: 0;
+  --type-mono-md: 400 13px/20px var(--font-mono);
+  --type-mono-md-ls: 0;
+  --type-mono-lg: 400 20px/24px var(--font-mono);
+  --type-mono-lg-ls: -0.01em;
+  --type-counter: 400 30px/30px var(--font-mono);
+  --type-counter-ls: -0.02em;
+  --type-kbd: 500 11px/16px var(--font-mono);
+  --type-kbd-ls: 0;
+  --space-0: 0px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+  --border-hairline: 1px;
+  --border-ring: 2px;
+  --border-ring-offset: 2px;
+  --size-control-sm: 28px;
+  --size-control-md: 32px;
+  --size-control-lg: 44px;
+  --size-icon-sm: 14px;
+  --size-icon-md: 16px;
+  --size-icon-lg: 20px;
+  --size-status-dot: 6px;
+  --size-progress-line: 3px;
+  --size-slider-track: 4px;
+  --size-slider-thumb: 14px;
+  --size-toggle-w: 32px;
+  --size-toggle-h: 18px;
+  --size-toggle-thumb: 14px;
+  --size-thumb-recent-w: 56px;
+  --size-thumb-recent-h: 40px;
+  --size-thumb-ref: 64px;
+  --size-textarea-prompt: 112px;
+  --size-mask-hatch: 8px;
+  --size-picture-slot-h: 64px;
+  --size-drop-tall: 96px;
+  --layout-viewport-desktop-w: 1280px;
+  --layout-viewport-desktop-h: 800px;
+  --layout-viewport-phone-w: 390px;
+  --layout-viewport-phone-h: 844px;
+  --layout-window-min-w: 960px;
+  --layout-window-min-h: 640px;
+  --layout-topbar-h: 52px;
+  --layout-column-left-w: 320px;
+  --layout-column-right-w: 280px;
+  --layout-column-library-w: 340px;
+  --layout-page-max-w: 1040px;
+  --layout-gutter: 24px;
+  --layout-column-pad: 16px;
+  --layout-frame-gap: 12px;
+  --layout-bp-phone-max: 599px;
+  --layout-bp-narrow-max: 1099px;
+  --layout-phone-tabbar-h: 56px;
+  --layout-phone-tray-max-h: 360px;
+  --motion-duration-instant: 0ms;
+  --motion-duration-fast: 120ms;
+  --motion-duration-base: 180ms;
+  --motion-duration-slow: 280ms;
+  --motion-duration-progress: 300ms;
+  --motion-duration-done-fade: 400ms;
+  --motion-duration-morph: 800ms;
+  --motion-duration-crossfade: 600ms;
+  --motion-duration-pulse: 1600ms;
+  --motion-duration-toast: 4000ms;
+  --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+  --motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+  --motion-fps-cap: 30;
+  --shadow-popover: 0px 8px 24px 0px rgba(0, 0, 0, 0.5);
+  --shadow-dialog: 0px 24px 64px 0px rgba(0, 0, 0, 0.6);
+  --opacity-disabled: 0.4;
+  --z-sticky: 5;
+  --z-topbar: 10;
+  --z-popover: 20;
+  --z-dialog: 30;
+  --z-toast: 40;
+}
+.t-title-page { font: var(--type-title-page); letter-spacing: var(--type-title-page-ls); }
+.t-title { font: var(--type-title); letter-spacing: var(--type-title-ls); }
+.t-body { font: var(--type-body); letter-spacing: var(--type-body-ls); }
+.t-body-strong { font: var(--type-body-strong); letter-spacing: var(--type-body-strong-ls); }
+.t-label { font: var(--type-label); letter-spacing: var(--type-label-ls); }
+.t-help { font: var(--type-help); letter-spacing: var(--type-help-ls); }
+.t-button { font: var(--type-button); letter-spacing: var(--type-button-ls); }
+.t-button-lg { font: var(--type-button-lg); letter-spacing: var(--type-button-lg-ls); }
+.t-mono-sm { font: var(--type-mono-sm); letter-spacing: var(--type-mono-sm-ls); font-variant-numeric: tabular-nums; }
+.t-mono-md { font: var(--type-mono-md); letter-spacing: var(--type-mono-md-ls); font-variant-numeric: tabular-nums; }
+.t-mono-lg { font: var(--type-mono-lg); letter-spacing: var(--type-mono-lg-ls); font-variant-numeric: tabular-nums; }
+.t-counter { font: var(--type-counter); letter-spacing: var(--type-counter-ls); font-variant-numeric: tabular-nums; }
+.t-kbd { font: var(--type-kbd); letter-spacing: var(--type-kbd-ls); }
